@@ -1,7 +1,7 @@
 # Reproducible Research: Peer Assessment 1
 
 
-## Loading and preprocessing the data
+## Here we will load and pre-process the data
 
 
 ```r
@@ -13,15 +13,19 @@ data <- read.csv("activity.csv")
 
 
 ```r
-library(ggplot2)
-total.steps <- tapply(data$steps, data$date, FUN=sum, na.rm=TRUE)
-qplot(total.steps, binwidth=1000, xlab="total steps taken by day")
+# splitting to isolate steps by day
+splitSteps <- split(data$steps, data$date)
+totalsplitSteps <- sapply(splitSteps, sum, na.rm=TRUE)
+
+hist(totalsplitSteps, main="steps by day", xlab="Date (Oct to Nov 2012)", ylab="Frequency", lwd=4, col="yellow", breaks = 15)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-1-1.png) 
 
 ```r
-mean(total.steps, na.rm=TRUE)
+# mean steps per day
+
+mean(totalsplitSteps, na.rm=TRUE)
 ```
 
 ```
@@ -29,7 +33,9 @@ mean(total.steps, na.rm=TRUE)
 ```
 
 ```r
-median(total.steps, na.rm=TRUE)
+# median steps per day
+
+median(totalsplitSteps, na.rm=TRUE)
 ```
 
 ```
