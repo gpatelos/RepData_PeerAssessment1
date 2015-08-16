@@ -149,4 +149,4 @@ xyplot(steps~interval | day_type, avgsteps,type="l", layout=c(1,2),xlab="Interva
 
 ![](PA1_template_files/figure-html/unnamed-chunk-12-1.png) 
 
-It is interesting to note the increased overall activity on weekends, but weekday mornings peak with consistent preparation for the work day.
+It is interesting to note an increased overall activity on weekends, but weekday mornings peak with consistent activity, possibly in preparation for the work day.
